@@ -1,22 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package regexfractals;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
-import javax.swing.JFrame;
-import javax.swing.colorchooser.AbstractColorChooserPanel;
+/*
+    This class is the GUI to change the regex input and output for RegexFractals.java
 
-/**
- *
- * @author David
  */
 public class MainFrame extends JFrame implements ActionListener{
     JTextField pattern;
@@ -34,6 +24,7 @@ public class MainFrame extends JFrame implements ActionListener{
         add(rf, BorderLayout.CENTER);
         pattern = new JTextField(".*(?:13|31)(.*)",15);
         regexes = new JComboBox<String>();
+        // all the pre-installed regex to play with
         regexes.addItem(".*1.*");
         regexes.addItem(".*12(.*)");
         regexes.addItem(".*(?:12|21|34|43)(.*)");

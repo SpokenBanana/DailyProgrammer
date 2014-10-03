@@ -1,14 +1,15 @@
 package rogueliketraveler;
 
-import java.awt.*;
-import java.awt.event.*;
-import java.awt.image.*;
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
-import javax.imageio.ImageIO;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class RogueLikeTraveler extends JPanel implements KeyListener{
     public static void main(String[] args) {
@@ -23,11 +24,11 @@ public class RogueLikeTraveler extends JPanel implements KeyListener{
         f.setVisible(true);
         
     }
-    char[][] board;
-    final char PLAYER, WALL, COIN;
-    int moves, points;
-    BufferedImage imgPlayer, imgWall, imgCoin, map;
-    Point playerPos;
+    private char[][] board;
+    private final char PLAYER, WALL, COIN;
+    private int moves, points;
+    private BufferedImage imgPlayer, imgWall, imgCoin, map;
+    private Point playerPos;
 
     public RogueLikeTraveler() {
         PLAYER = '@';
@@ -99,9 +100,7 @@ public class RogueLikeTraveler extends JPanel implements KeyListener{
     public void reset() {
         moves = 100;
         points = 0;
-        try {
-            parsePicToBoard(map);
-        } catch (Exception e) {}
+        parsePicToBoard(map);
     }
 
     public void paintComponent(Graphics g) {
